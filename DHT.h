@@ -34,6 +34,7 @@ class DHT {
   float convertCtoF(float);
   float convertFtoC(float);
   float computeHeatIndex(float tempFahrenheit, float percentHumidity);
+  float computeHeatIndexCelsius(float tempCelsius, float percentHumidity);
   float readHumidity(void);
   boolean read(void);
 
