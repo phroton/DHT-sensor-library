@@ -90,6 +90,18 @@ float DHT::computeHeatIndex(float tempFahrenheit, float percentHumidity) {
           -0.00000199 * pow(tempFahrenheit, 2) * pow(percentHumidity, 2);
 }
 
+float DHT::computeHeatIndexCelsius(float tempCelsius, float percentHumidity) {
+  // Wikipedia: http://en.wikipedia.org/wiki/Heat_index
+  return -8.784695 +
+           1.61139411 * tempCelsius +
+           2.338549 * percentHumidity +
+          -0.14611605 * tempCelsius*percentHumidity +
+          -0.012308094 * pow(tempCelsius, 2) +
+          -0.016424828 * pow(percentHumidity, 2) +
+           0.002211732 * pow(tempCelsius, 2) * percentHumidity +
+           0.00072546 * tempCelsius*pow(percentHumidity, 2) +
+          -0.000003582 * pow(tempCelsius, 2) * pow(percentHumidity, 2);
+}
 
 boolean DHT::read(void) {
   uint8_t laststate = HIGH;
